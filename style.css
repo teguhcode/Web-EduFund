@@ -1,0 +1,71 @@
+/* ===== HALAMAN TENTANG & KONTAK ===== */
+.tentang_kontak {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 120px 5% 4rem;
+    display: flex;
+    gap: 40px;
+}
+
+.tentang_box,
+.kontak_box {
+    width: 50%;
+    background: var(--white-color);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.tentang_box h2,
+.kontak_box h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.tentang_box p {
+    color: var(--dark-color);
+    line-height: 1.7;
+}
+
+/* FORM KONTAK */
+.kontak_box form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.kontak_box input,
+.kontak_box textarea {
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+}
+
+.kontak_box input:focus,
+.kontak_box textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(51,169,51,0.15);
+}
+
+.kontak_box button {
+    background: var(--accent-color);
+    color: var(--white-color);
+    padding: 12px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.kontak_box button:hover {
+    background: var(--primary-color);
+}
+
+/* STATUS PESAN */
+#statusPesan {
+    display: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 10px;
+}
