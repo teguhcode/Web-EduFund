@@ -166,17 +166,17 @@ function home() {
 function kampanye() {
   return `
     <div class="kampanye-atas">
-      <img src="https://static.alinea.id/2022/07/28/149991/anak-jalanan-di-kota-makassar-ditertibkan-wawali-pastikan-beri-pendampingan-2XwslO1u13.jpg" class="gambar-atas">
+      <img src="https://www.harianpilar.com/files/2015/03/sekolah-624x312.jpg" class="gambar-atas" alt="Kampanye Pendidikan">
       <div class="teks-atas">
-        <h1>Mari Berbagi Kebaikan</h1>
-        <p>Dukung pendidikan anak Indonesia melalui kampanye yang tersedia</p>
+        <h1>Berbagi Kebaikan</h1>
+        <p>Dukung pendidikan melalui kampanye yang telah tersedia</p>
       </div>
     </div>
 
     <div class="kampanye-bawah">
 
       <div class="kotak-kampanye">
-        <img src="asset/baju_sekolah.jpg" class="gambar-kampanye">
+        <img src="asset/baju_sekolah.jpg" class="gambar-kampanye" alt="Bantuan Seragam">
         <div class="isi-kampanye">
           <h3>Bantuan Seragam Sekolah</h3>
           <p>Membantu siswa kurang mampu mendapatkan seragam sekolah yang layak.</p>
@@ -184,12 +184,12 @@ function kampanye() {
                 <p class="label">Donasi Terkumpul</p>
                 <p class="nominal">Rp 25.000.000</p>
             </div>
-          <button class="tombol-donasi" onclick="App.navigasi('donasi')">Donasi</button>
+          <button class="tombol-donasi" onclick="App.navigasi('donasi')">Donasi Sekarang</button>
         </div>
       </div>
 
       <div class="kotak-kampanye">
-        <img src="asset/bantuan_beasiswa.jpg" class="gambar-kampanye">
+        <img src="asset/bantuan_beasiswa.jpg" class="gambar-kampanye" alt="Beasiswa Pelajar">
         <div class="isi-kampanye">
           <h3>Beasiswa Pelajar</h3>
           <p>Program bantuan pendidikan untuk siswa berprestasi.</p>
@@ -198,23 +198,52 @@ function kampanye() {
                 <p class="label">Donasi Terkumpul</p>
                 <p class="nominal">Rp 50.000.000</p>
             </div>
-          <button class="tombol-donasi" onclick="App.navigasi('donasi')">Donasi</button>
+          <button class="tombol-donasi" onclick="App.navigasi('donasi')">Donasi Sekarang</button>
         </div>
       </div>
 
        <div class="kotak-kampanye">
-        <img src="asset/bantuan_beasiswa.jpg" class="gambar-kampanye">
+        <img src="https://cdn.antaranews.com/cache/1200x800/2023/05/20/IMG-20230520-WA0024_1.jpg" class="gambar-kampanye" alt="renovasi sekolah">
         <div class="isi-kampanye">
-          <h3>Beasiswa Pelajar</h3>
-          <p>Program bantuan pendidikan untuk siswa berprestasi.</p>
+          <h3>Renovasi Ruang Kelas Rusak</h3>
+          <p>Memperbaiki struktur bangunan kelas yang rapuh guna menjamin keamanan dan kenyamanan siswa selama kegiatan belajar mengajar.</p>
 
            <div class="donasi-info">
                 <p class="label">Donasi Terkumpul</p>
-                <p class="nominal">Rp 50.000.000</p>
+                <p class="nominal">Rp 70.000.000</p>
             </div>
-          <button class="tombol-donasi" onclick="App.navigasi('donasi')">Donasi</button>
+          <button class="tombol-donasi" onclick="App.navigasi('donasi')">Donasi Sekarang</button>
         </div>
       </div>
+
+      <div class="kotak-kampanye">
+        <img src="https://cdn.antaranews.com/cache/800x533/2019/05/17/IMG20190517130111.jpg" class="gambar-kampanye" alt="Perpustakaan Sekolah">
+        <div class="isi-kampanye">
+          <h3>Pembangunan Perpustakaan</h3>
+          <p>Membangun ruang baca yang memadai serta penyediaan rak buku untuk meningkatkan minat baca dan literasi siswa di sekolah.</p>
+
+           <div class="donasi-info">
+                <p class="label">Donasi Terkumpul</p>
+                <p class="nominal">Rp 65.000.000</p>
+            </div>
+          <button class="tombol-donasi" onclick="App.navigasi('donasi')">Donasi Sekarang</button>
+        </div>
+      </div>
+
+      <div class="kotak-kampanye">
+        <img src="https://www.tzuchi.or.id/inliners/1687492931-1-whatsapp-image-2023-06-20-at-08-38-15-edt.jpg" class="gambar-kampanye" alt="bantuan buku dan alat tulis">
+        <div class="isi-kampanye">
+          <h3>Bantuan Buku dan Alat Tulis</h3>
+          <p>Penyaluran buku kebutuhan dasar belajar sebagai upaya memenuhi standar fasilitas pendidikan bagi siswa kurang mampu.</p>
+
+           <div class="donasi-info">
+                <p class="label">Donasi Terkumpul</p>
+                <p class="nominal">Rp 80.000.000</p>
+            </div>
+          <button class="tombol-donasi" onclick="App.navigasi('donasi')">Donasi Sekarang</button>
+        </div>
+      </div>
+
 
     </div>
   `;
