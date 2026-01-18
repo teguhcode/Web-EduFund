@@ -1,0 +1,436 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    /* Colors */
+    --white-color: #fff;
+    --dark-color: #1a1a1a;
+    --primary-color: rgb(51, 169, 51);
+    --primary-light: rgb(80, 200, 51);
+    --secondary-color: rgb(64, 181, 207);
+    --accent-color: rgb(230, 145, 60);
+}
+
+/* Base Styles */
+a { 
+    text-decoration: none; 
+}
+
+button { 
+    cursor: pointer; 
+    border: none; 
+    background: none; 
+}
+
+img { 
+    width: 100%; 
+}
+
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+.navbar .navbar-nav a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: 0.3s ease;
+}
+
+.navbar .navbar-nav a:hover {
+    color: var(--white-color);
+    background: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-donasi {
+    background-color: var(--accent-color); 
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.nav-donasi:hover {
+    transform: scale(1.05);
+}
+
+.nav-logout {
+    color: #e74c3c;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 50px;
+    padding: 10px 15px;
+    transition: 0.3s ease;
+}
+
+.nav-logout:hover {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+
+/* Footer Section */
+.footer {
+    background-color: var(--primary-color); 
+    color: var(--white-color);
+    padding: 4rem 5% 2rem;
+}
+
+.footer-content {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-container {
+    display: flex;
+    gap: 200px;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--white-color);
+    border-bottom: 2px solid var(--secondary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-text {
+    max-width: 550px; 
+    text-align: justify;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-link {
+    list-style: none;
+    font-weight: 600;   
+    color: var(--white-color);
+    display: block;
+    margin-bottom: 0.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    color: var(--secondary-color);
+    padding-left: 5px;
+}
+
+
+/* Home */
+.home {
+    min-height: 100vh;
+    background: radial-gradient(circle at center, var(--primary-light) 0%, var(--primary-color) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--white-color);
+    overflow: hidden;
+    padding: 80px 5% 0 5%; 
+}
+
+/* Side Images */
+.home-side-image {
+    flex: 0 0 22%; 
+    height: 65vh; 
+    display: flex;
+    align-items: center;
+    animation: 1s ease-in-out forwards;
+}
+
+.home-side-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 30px; 
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.home-side-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Content Area */
+.home-content {
+    flex: 1;
+    text-align: center;
+    padding: 0 2rem;
+    z-index: 2;
+}
+
+.title {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    margin-bottom: 2.5rem;  
+    font-weight: 300;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Donasi button */
+.klik-donasi {
+    background: var(--white-color);
+    color: var(--primary-color);
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}    
+
+.klik-donasi:hover {
+    background: var(--accent-color);
+    color: var(--white-color);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}    
+
+/* Container Utama Kiri-Kanan */
+.main-split-container {
+    padding: 50px 5%;
+    background-color: #f4f7f6;
+}
+
+.split-wrapper {
+    display: flex;
+    gap: 100px;
+    align-items: flex-start;
+}
+
+/* statistik */
+.stats-side-area {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.stat-box {
+    background: white;
+    padding: 30px;
+    border: 2px solid var(--dark-color);
+    border-radius: 20px;
+}
+
+.stat-info h3 { 
+    font-size: 1.8rem; 
+    color: var(--primary-color);
+}
+
+.stat-info p { 
+    color: var(--dark-color); 
+    font-weight: 600;
+}
+
+/* kampanye aktif */
+.campaign-side-area {
+    flex: 1;
+}
+
+.kampanye-section-title { 
+    font-size: 2rem; 
+    color: var(--primary-color); 
+    margin-bottom: 30px; }
+
+/* Style Kartu Kampanye */
+.kampanye-list-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.kampanye-card-custom {
+    display: flex;
+    background: var(--white-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    height: 250px;
+}
+
+.kampanye-img-box {
+    flex: 0 0 250px;
+}
+
+.kampanye-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kampanye-details {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.kampanye-details h3 { 
+    font-size: 1.3rem; 
+    margin-bottom: 8px; 
+    color: var(--dark-color); 
+}
+
+.kampanye-details p { 
+    font-size: 0.9rem; 
+    color: var(--dark-color); 
+    margin-bottom: 15px; 
+}
+
+.donasi-info .label { 
+    font-size: 0.8rem; 
+    color: var(--dark-color); 
+    margin: 0; 
+}
+
+.donasi-info .nominal { 
+    font-size: 1.2rem; 
+    font-weight: 800; 
+    color: var(--primary-light); 
+    margin: 0 0 15px 0; 
+}
+
+.klik-donasi-kecil {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.center-link { 
+    text-align: center; 
+    margin-top: 30px; 
+}
+
+.klik-kampanye {
+    background: var(--white-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+/* Login Page */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f7f6;
+}
+
+.login-card {
+    background: white;
+    padding: 2.5rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-title {
+    font-size: 2.5rem;
+    color: var(--primary-color); 
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--dark-color);
+    border-radius: 5px;
+    outline: none;
+}
+
+.form-submit {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 10px;
+    font-size: medium;
+    font-weight: 700;
+    transition: 0.3s;
+}
