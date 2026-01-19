@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap");
+/* ================= FONT & RESET ================= */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap");
 
 * {
     margin: 0;
@@ -16,22 +17,11 @@
     --accent-color: rgb(230, 145, 60);
 }
 
+a { text-decoration: none; }
+button { cursor: pointer; border: none; }
+img { width: 100%; }
 
-a {
-    text-decoration: none;
-}
-
-button {
-    cursor: pointer;
-    border: none;
-    background: none;
-}
-
-img {
-    width: 100%;
-}
-
-
+/* ================= NAVBAR ================= */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -40,83 +30,81 @@ img {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 2px 15px rgba(0,0,0,0.05);
 }
 
-.navbar .navbar-logo {
+.navbar-logo {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--primary-color);
     font-style: italic;
 }
 
-.navbar .navbar-nav a {
-    font-size: 1rem;
+.navbar-nav a,
+.navbar-nav button {
+    margin-left: 10px;
+    padding: 10px 16px;
+    border-radius: 20px;
     font-weight: 600;
     color: var(--primary-color);
-    padding: 10px 15px;
-    border-radius: 20px;
-    transition: 0.3s ease;
+    background: none;
+    transition: 0.3s;
 }
 
-.navbar .navbar-nav a:hover {
-    color: var(--white-color);
+.navbar-nav a:hover,
+.navbar-nav button:hover {
     background: var(--primary-color);
+    color: var(--white-color);
 }
 
+/* ================= HOME ================= */
 .home {
     min-height: 100vh;
-    background: radial-gradient(circle at center, var(--primary-light) 0%, var(--primary-color) 100%);
+    background: radial-gradient(circle, var(--primary-light), var(--primary-color));
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    color: var(--white-color);
-    overflow: hidden;
-    padding: 80px 5% 0;
-}
-
-.home_content {
-    flex: 1;
     text-align: center;
-    padding: 0 2rem;
+    color: var(--white-color);
+    padding-top: 80px;
 }
 
-.title {
+.home h1 {
     font-size: clamp(2.2rem, 5vw, 3.8rem);
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-.subtitle {
+.home p {
     font-size: 1.2rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
-.klik_donasi {
+.home button {
     background: var(--white-color);
     color: var(--primary-color);
-    padding: 1.2rem 2.5rem;
+    padding: 1rem 2.5rem;
     border-radius: 50px;
     font-weight: 700;
     transition: 0.3s;
 }
 
-.klik_donasi:hover {
+.home button:hover {
     background: var(--accent-color);
     color: var(--white-color);
 }
 
-
+/* ================= DONASI ================= */
 .donasi_page {
     min-height: 100vh;
-    background-color: #f8f9fa;
+    background: #f8f9fa;
     padding: 120px 5% 5rem;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
 }
 
 .donasi_container {
@@ -128,62 +116,18 @@ img {
     box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
 
-.donasi_title {
+.donasi_container h2 {
     text-align: center;
     color: var(--primary-color);
-    font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
-.donasi_subtitle {
+.donasi_container p {
     text-align: center;
-    font-size: 0.95rem;
     margin-bottom: 2rem;
 }
 
-
-.form_group {
-    margin-bottom: 1.5rem;
-}
-
-.form_group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.form_group input,
-.form_group select {
-    width: 100%;
-    padding: 0.9rem 1rem;
-    border-radius: 15px;
-    border: 1px solid #ddd;
-    outline: none;
-}
-
-.form_group input:focus,
-.form_group select:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(51,169,51,0.15);
-}
-
-.btn_donasi {
-    width: 100%;
-    background: var(--accent-color);
-    color: var(--white-color);
-    padding: 1rem;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    transition: 0.3s;
-}
-
-.btn_donasi:hover {
-    background: var(--primary-color);
-    transform: translateY(-3px);
-}
-
-
+/* ===== PROGRESS ===== */
 .progress_wrapper {
     margin-bottom: 2rem;
     padding: 1.2rem;
@@ -191,42 +135,73 @@ img {
     border-radius: 15px;
 }
 
-.progress_wrapper p {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--dark-color);
-}
-
 .progress_bar {
-    width: 100%;
     height: 18px;
-    background: #e0e0e0;
+    background: #ddd;
     border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 0.5rem;
 }
 
 #progress_fill {
     height: 100%;
     width: 0%;
-    background: linear-gradient(
-        90deg,
-        var(--primary-light),
-        var(--primary-color)
-    );
-    border-radius: 10px;
+    background: linear-gradient(90deg, var(--primary-light), var(--primary-color));
     transition: width 0.6s ease;
 }
 
 #progress_text {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--dark-color);
 }
 
-/* ===== FOOTER ===== */
+/* ===== FORM ===== */
+.donasi_container input,
+.donasi_container select {
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+}
+
+.donasi_container input:focus,
+.donasi_container select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.donasi_container button {
+    width: 100%;
+    background: var(--accent-color);
+    color: var(--white-color);
+    padding: 1rem;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.donasi_container button:hover {
+    background: var(--primary-color);
+}
+
+/* ===== LIST DONATUR ===== */
+#list_donatur {
+    margin-top: 2rem;
+}
+
+#list_donatur ul {
+    list-style: none;
+}
+
+#list_donatur li {
+    padding: 0.7rem;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+/* ================= FOOTER ================= */
 .footer {
-    background-color: var(--primary-color);
+    background: var(--primary-color);
     color: var(--white-color);
     padding: 4rem 5% 2rem;
 }
@@ -237,22 +212,17 @@ img {
     gap: 3rem;
 }
 
-.footer_title {
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--secondary-color);
-    display: inline-block;
-}
-
 .footer_links {
     list-style: none;
 }
 
 .footer_links a {
     color: rgba(255,255,255,0.8);
-    display: block;
-    margin-bottom: 0.5rem;
 }
 
-.footer_links a:hover {
-    color: var(--secondary-color);
+.footer_bottom {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    opacity: 0.8;
 }

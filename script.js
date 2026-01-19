@@ -1,5 +1,8 @@
 const rootApp = document.getElementById("app");
 
+/* =========================
+   DATA GLOBAL
+========================= */
 const DataStore = {
     autentikasi: {
         terdaftar: false,
@@ -7,9 +10,12 @@ const DataStore = {
     },
 };
 
-const TARGET_DONASI = 1000000; 
+const TARGET_DONASI = 1000000;
 
-function navbar(){
+/* =========================
+   NAVBAR
+========================= */
+function navbar() {
     const { terdaftar } = DataStore.autentikasi;
     return `
         <nav class="navbar">
@@ -33,22 +39,24 @@ function navbar(){
     `;
 }
 
-
-function footer(){
+/* =========================
+   FOOTER
+========================= */
+function footer() {
     return `
         <footer class="footer">
             <div class="footer_content">
                 <div>
-                    <h3 class="footer_title">Tentang EduFund</h3>
+                    <h3>Tentang EduFund</h3>
                     <p>
-                        Bersama menyalurkan kepedulian melalui donasi pendidikan untuk
-                        menciptakan akses belajar yang merata dan berkelanjutan
+                        Bersama menyalurkan kepedulian melalui donasi pendidikan
+                        untuk masa depan yang lebih baik.
                     </p>
                 </div>
 
                 <div>
-                    <h3 class="footer_title">Quick Links</h3>
-                    <ul class="footer_links">
+                    <h3>Quick Links</h3>
+                    <ul>
                         <li><a onclick="App.navigasi('home')">Home</a></li>
                         <li><a onclick="App.navigasi('kampanye')">Kampanye</a></li>
                         <li><a onclick="App.navigasi('relawan')">Relawan</a></li>
@@ -57,7 +65,7 @@ function footer(){
                 </div>
 
                 <div>
-                    <h3 class="footer_title">Kontak Informasi</h3>
+                    <h3>Kontak</h3>
                     <p>📍 Denpasar</p>
                     <p>📞 +62 01-002-003</p>
                     <p>✉️ EduFund@gmail.com</p>
@@ -70,7 +78,9 @@ function footer(){
     `;
 }
 
-
+/* =========================
+   HALAMAN
+========================= */
 function home() {
     return `
         <div class="home">
@@ -81,18 +91,27 @@ function home() {
     `;
 }
 
-function kampanye(){
+function kampanye() {
     return `<p>Halaman Kampanye</p>`;
 }
 
+function relawan() {
+    return `<p>Halaman Relawan</p>`;
+}
+
+function kontak() {
+    return `<p>Tentang & Kontak</p>`;
+}
+
+/* =========================
+   HALAMAN DONASI
+========================= */
 function donasi() {
     return `
     <section class="donasi_page">
         <div class="donasi_container">
-            <h2 class="donasi_title">Form Donasi Pendidikan</h2>
-            <p class="donasi_subtitle">
-                Setiap donasi Anda membantu menciptakan masa depan pendidikan yang lebih baik
-            </p>
+            <h2>Form Donasi Pendidikan</h2>
+            <p>Setiap donasi Anda sangat berarti</p>
 
             <div class="progress_wrapper">
                 <p>Progress Donasi</p>
@@ -102,76 +121,38 @@ function donasi() {
                 <small id="progress_text"></small>
             </div>
 
-            <form class="donasi_form" onsubmit="handleDonasi(event)">
-                <div class="form_group">
-                    <label>Nama Lengkap</label>
-                    <input id="nama" type="text" placeholder="Masukkan nama anda">
-                </div>
-
-                <div class="form_group">
-                    <label>Email</label>
-                    <input id="email" type="email" placeholder="Masukkan email">
-                </div>
-
-                <div class="form_group">
-                    <label>Nominal Donasi</label>
-                    <input id="nominal" type="number" placeholder="Contoh: 50000">
-                </div>
-
-                <div class="form_group">
-                    <label>Metode Pembayaran</label>
-                    <select id="metode">
-                        <option value="">-- Pilih Metode --</option>
-                        <option>Transfer Bank</option>
-                        <option>E-Wallet</option>
-                        <option>Kartu Kredit</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="btn_donasi">
-                    Donasi Sekarang
-                </button>
+            <form onsubmit="handleDonasi(event)">
+                <input id="nama" type="text" placeholder="Nama Lengkap">
+                <input id="email" type="email" placeholder="Email">
+                <input id="nominal" type="number" placeholder="Nominal Donasi">
+                <select id="metode">
+                    <option value="">-- Pilih Metode --</option>
+                    <option>Transfer Bank</option>
+                    <option>E-Wallet</option>
+                    <option>Kartu Kredit</option>
+                </select>
+                <button type="submit">Donasi Sekarang</button>
             </form>
+
+            <div id="list_donatur"></div>
         </div>
     </section>
     `;
 }
 
-
-function relawan(){
-    return `<p>Halaman Relawan</p>`;
-}
-
-function kontak(){
-    return `<p>Tentang & Kontak</p>`;
-}
-
-
+/* =========================
+   HANDLE DONASI
+========================= */
 function handleDonasi(event) {
     event.preventDefault();
 
-    const nama = document.getElementById("nama").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const nominal = document.getElementById("nominal").value;
+    const nama = document.getElementById("nama").value;
+    const email = document.getElementById("email").value;
+    const nominal = Number(document.getElementById("nominal").value);
     const metode = document.getElementById("metode").value;
 
-    if (nama.length < 3) {
-        alert("Nama minimal 3 karakter");
-        return;
-    }
-
-    if (!email.includes("@")) {
-        alert("Email tidak valid");
-        return;
-    }
-
-    if (nominal <= 0) {
-        alert("Nominal donasi harus lebih dari 0");
-        return;
-    }
-
-    if (metode === "") {
-        alert("Pilih metode pembayaran");
+    if (!nama || !email || !nominal || !metode) {
+        alert("Semua data wajib diisi!");
         return;
     }
 
@@ -180,22 +161,41 @@ function handleDonasi(event) {
     riwayat.push({
         nama,
         email,
-        nominal: Number(nominal),
+        nominal,
         metode,
-        tanggal: new Date().toLocaleDateString()
+        tanggal: new Date().toLocaleString()
     });
 
     localStorage.setItem("donasi", JSON.stringify(riwayat));
 
     alert("Terima kasih! Donasi Anda berhasil ❤️");
 
-    updateProgress();
     event.target.reset();
+    tampilkanDonatur();
+    updateProgress();
 }
 
+/* =========================
+   TAMPILKAN DONATUR
+========================= */
+function tampilkanDonatur() {
+    const data = JSON.parse(localStorage.getItem("donasi")) || [];
+
+    let output = "<h3>Daftar Donatur</h3><ul>";
+    data.forEach(d => {
+        output += `<li>${d.nama} - Rp ${d.nominal.toLocaleString()} (${d.metode})</li>`;
+    });
+    output += "</ul>";
+
+    document.getElementById("list_donatur").innerHTML = output;
+}
+
+/* =========================
+   UPDATE PROGRESS
+========================= */
 function updateProgress() {
-    const riwayat = JSON.parse(localStorage.getItem("donasi")) || [];
-    const total = riwayat.reduce((sum, d) => sum + d.nominal, 0);
+    const data = JSON.parse(localStorage.getItem("donasi")) || [];
+    const total = data.reduce((sum, d) => sum + d.nominal, 0);
     const persen = Math.min((total / TARGET_DONASI) * 100, 100);
 
     const fill = document.getElementById("progress_fill");
@@ -207,13 +207,14 @@ function updateProgress() {
     }
 }
 
-
+/* =========================
+   ROUTER
+========================= */
 const App = {
     navigasi(page) {
         window.location.hash = `#/${page}`;
         window.scrollTo({ top: 0, behavior: "smooth" });
     },
-
     logout() {
         if (confirm("Logout?")) {
             DataStore.autentikasi.terdaftar = false;
@@ -223,22 +224,25 @@ const App = {
     }
 };
 
-function router(){
+function router() {
     const route = location.hash || "#/home";
 
     rootApp.innerHTML = navbar();
 
-    if(route === "#/home") rootApp.innerHTML += home();
-    else if(route === "#/kampanye") rootApp.innerHTML += kampanye();
-    else if(route === "#/donasi") rootApp.innerHTML += donasi();
-    else if(route === "#/relawan") rootApp.innerHTML += relawan();
-    else if(route === "#/kontak") rootApp.innerHTML += kontak();
+    if (route === "#/home") rootApp.innerHTML += home();
+    else if (route === "#/kampanye") rootApp.innerHTML += kampanye();
+    else if (route === "#/donasi") rootApp.innerHTML += donasi();
+    else if (route === "#/relawan") rootApp.innerHTML += relawan();
+    else if (route === "#/kontak") rootApp.innerHTML += kontak();
     else rootApp.innerHTML += "<h2>404 - Halaman Tidak Ditemukan</h2>";
 
     rootApp.innerHTML += footer();
 
     if (route === "#/donasi") {
-        setTimeout(updateProgress, 50);
+        setTimeout(() => {
+            tampilkanDonatur();
+            updateProgress();
+        }, 50);
     }
 }
 
