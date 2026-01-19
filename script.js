@@ -244,6 +244,19 @@ function kampanye() {
         </div>
       </div>
 
+      <div class="kotak-kampanye">
+        <img src="https://asset.tribunnews.com/P6pi4ad-O2Q8eW5wgdR33TAEomk=/1200x675/filters:upscale():quality(30):format(webp):focal(0.5x0.5:0.5x0.5)/tribunnews/foto/bank/originals/nasib-guru-indonesia_20151124_182931.jpg" class="gambar-kampanye" alt="bantuan mengajar">
+        <div class="isi-kampanye">
+          <h3>Bantuan Mengajar di daerah terpencil</h3>
+          <p>Upaya pemerataan kualitas pendidikan melalui penempatan relawan pengajar dan penyediaan materi belajar di sekolah-sekolah daerah tertinggal.</p>
+
+           <div class="donasi-info">
+                <p class="label">Donasi Terkumpul</p>
+                <p class="nominal">Rp 40.000.000</p>
+            </div>
+          <button class="tombol-donasi" onclick="App.navigasi('donasi')">Donasi Sekarang</button>
+        </div>
+      </div>
 
     </div>
   `;
@@ -257,7 +270,8 @@ function donasi() {
     `;
 }
 
-function relawan() {
+
+function relawan() {  
   return `
         <div>
             <p>relawan</p>
